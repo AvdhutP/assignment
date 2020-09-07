@@ -6,8 +6,22 @@ public class StringCalculator {
         if(numbers.equals("")){
             return 0;
         }
-        else
-            return convertToInt(numbers);
+        else{
+            String nums[] = splitNumbers(numbers, ",");
+            return sum(nums);
+        }
+    }
+
+    private int sum(String[] nums) {
+        int total = 0;
+        for(String number : nums){
+            total += convertToInt(number);
+        }
+        return total;
+    }
+
+    private String[] splitNumbers(String numbers, String delimeter) {
+        return numbers.split(delimeter);
     }
 
     private static int convertToInt(String number){
