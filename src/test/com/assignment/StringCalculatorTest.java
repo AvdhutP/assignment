@@ -25,4 +25,9 @@ public class StringCalculatorTest {
     public void testTwoNumbers(){
         assertEquals(3, calculator.Add("1,2"));
     }
+
+    @Test
+    public void testMultipleNumbers(){
+        assertEquals(15, calculator.Add("1,2,3,4,5"));
+    }
 }
