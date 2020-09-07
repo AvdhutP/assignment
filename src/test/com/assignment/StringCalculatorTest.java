@@ -35,4 +35,26 @@ public class StringCalculatorTest {
     public void testNewLineDelimeter(){
         assertEquals(6, calculator.Add("1\n2,3"));
     }
+
+    @Test
+    public void testOtherDelimiter(){
+        assertEquals(3, calculator.Add("//;\n1;2"));
+    }
+
+    @Test
+    public void testNegativeNumber(){
+        try {
+            calculator.Add("-1,2");
+        }
+        catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "negatives not allowed -1");
+        }
+
+        try {
+            calculator.Add("2,-4,3,-5");
+        }
+        catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "negatives not allowed -4,-5");
+        }
+    }
 }
