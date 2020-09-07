@@ -7,7 +7,7 @@ public class StringCalculator {
             return 0;
         }
         else{
-            String nums[] = splitNumbers(numbers, ",");
+            String nums[] = splitNumbers(numbers, "\n|,");
             return sum(nums);
         }
     }

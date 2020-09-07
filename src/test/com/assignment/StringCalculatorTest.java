@@ -30,4 +30,9 @@ public class StringCalculatorTest {
     public void testMultipleNumbers(){
         assertEquals(15, calculator.Add("1,2,3,4,5"));
     }
+
+    @Test
+    public void testNewLineDelimeter(){
+        assertEquals(6, calculator.Add("1\n2,3"));
+    }
 }
