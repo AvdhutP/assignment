@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class StringCalculatorTest {
     private static StringCalculator calculator;
-    public static void main(String args[]) {
+    public static void main(final String args[]) {
         calculator = new StringCalculator();
         org.junit.runner.JUnitCore.main("com.assignment.StringCalculatorTest");
     }
@@ -46,15 +46,25 @@ public class StringCalculatorTest {
         try {
             calculator.Add("-1,2");
         }
-        catch (IllegalArgumentException e){
+        catch (final IllegalArgumentException e){
             assertEquals(e.getMessage(), "negatives not allowed -1");
         }
 
         try {
             calculator.Add("2,-4,3,-5");
         }
-        catch (IllegalArgumentException e){
+        catch (final IllegalArgumentException e){
             assertEquals(e.getMessage(), "negatives not allowed -4,-5");
         }
+    }
+
+    @Test
+    public void testNumberGreaterThan1000(){
+        assertEquals(2, calculator.Add("1001,2"));
+    }
+
+    @Test
+    public void testDelemetersMoreThanOne(){
+        assertEquals(6, calculator.Add("//[;][,]\n1;2,3"));
     }
 }
